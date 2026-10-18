@@ -1,0 +1,11 @@
+{
+  "name": "ResuelveYa - Servicios y Trabajadores",
+  "short_name": "ResuelveYa",
+  "description": "Encuentra trabajadores y profesionales de servicios locales.",
+  "start_url": "/Resuelveya/",
+  "scope": "/Resuelveya/",
+  "display": "standalone",
+  "background_color": "#f3f6fc",
+  "theme_color": "#17243c",
+  "lang": "es"
+}
