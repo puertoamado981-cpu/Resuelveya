@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ResuelveYa</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fb;color:#18243a}
+header{background:#1263df;color:white;padding:30px 20px;text-align:center}
+h1{margin:0;font-size:32px}
+header p{margin-bottom:0}
+main{max-width:700px;margin:auto;padding:20px}
+input{width:100%;padding:16px;border:1px solid #ccc;border-radius:12px;font-size:16px}
+h2{font-size:22px;margin-top:28px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:white;border:1px solid #ddd;border-radius:16px;padding:22px 10px;text-align:center;font-size:16px;cursor:pointer}
+.card span{display:block;font-size:34px;margin-bottom:10px}
+.card[hidden]{display:none}
+.notice{background:#e6f0ff;padding:18px;border-radius:14px;margin-top:25px;line-height:1.5}
+footer{text-align:center;color:#667085;padding:24px}
+</style>
+</head>
+<body>
+<header>
+<h1>🔧 ResuelveYa</h1>
+<p>Encuentra trabajadores cerca de ti</p>
+</header>
+<main>
+<h2>¿Qué servicio necesitas?</h2>
+<input id="buscar" placeholder="🔍 Buscar servicio..." aria-label="Buscar servicio">
+<h2>Servicios para tu hogar</h2>
+<div class="grid">
+<button class="card" data-name="plomería"><span>🚰</span>Plomería</button>
+<button class="card" data-name="electricidad"><span>💡</span>Electricidad</button>
+<button class="card" data-name="pintura"><span>🎨</span>Pintura</button>
+<button class="card" data-name="limpieza"><span>🧹</span>Limpieza</button>
+<button class="card" data-name="carpintería"><span>🪚</span>Carpintería</button>
+<button class="card" data-name="jardinería"><span>🌿</span>Jardinería</button>
+</div>
+<p id="resultado" role="status"></p>
+<div class="notice">
+<strong>¡Bienvenido a ResuelveYa!</strong>
+<p>Pronto podrás encontrar profesionales, consultar perfiles y solicitar servicios.</p>
+</div>
+</main>
+<footer>ResuelveYa © 2026</footer>
+<script>
+const buscar=document.getElementById("buscar");
+const tarjetas=document.querySelectorAll(".card");
+const resultado=document.getElementById("resultado");
+buscar.addEventListener("input",function(){
+let visibles=0;
+const texto=buscar.value.toLowerCase().trim();
+tarjetas.forEach(function(t){
+const coincide=t.dataset.name.includes(texto);
+t.hidden=!coincide;
+if(coincide)visibles++;
+});
+resultado.textContent=visibles===0?"No encontramos ese servicio.":"";
+});
+tarjetas.forEach(function(t){
+t.addEventListener("click",function(){
+alert("Próximamente podrás solicitar "+t.dataset.name+" en ResuelveYa.");
+});
+});
+</script>
+</body>
+</html>
