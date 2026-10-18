@@ -67,5 +67,21 @@ alert("Próximamente podrás solicitar "+t.dataset.name+" en ResuelveYa.");
 });
 });
 </script>
-</body>
+<section style="padding:20px;text-align:center">
+  <h2>¿Eres trabajador?</h2>
+  <p>Regístrate para ofrecer tus servicios.</p>
+  <button onclick="document.getElementById('registro').hidden=false">
+    Soy trabajador
+  </button>
+
+  <div id="registro" hidden>
+    <h3>Registro de trabajador</h3>
+    <input placeholder="Tu nombre">
+    <input placeholder="Tu oficio">
+    <input placeholder="Tu ciudad">
+    <input type="tel" placeholder="Tu teléfono">
+    <p>Próximamente podrás enviar tu registro.</p>
+  </div>
+   </section>
+</body>  
 </html>
